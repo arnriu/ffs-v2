@@ -1,45 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 import { translate } from 'react-i18next';
-import { Table } from 'reactstrap'
+import { Row, Col } from 'reactstrap';
 
 const EventRoundDetails = ({t, eventRound}) => (
-	<Table>
-		<tbody>
-			<tr>
-				<td>{t('event.name')}</td>
-				<td>{eventRound.name}</td>
-			</tr>
-			<tr>
-				<td>{t('event.description')}</td>
-				<td dangerouslySetInnerHTML={{__html: eventRound.description}} />
-			</tr>
-			<tr>
-				<td>{t('event.status')}</td>
-				<td>{eventRound.status}</td>
-			</tr>
-			<tr>
-				<td>{t('event.reservedToAffiliates')}</td>
-				<td>{eventRound.reservedToAffiliates ? "Oui": "Non"}</td>
-			</tr>
-			<tr>
-				<td>{t('event.reservedToPartners')}</td>
-				<td>{eventRound.reservedToPartners ? "Oui": "Non"}</td>
-			</tr>
-			<tr>
-				<td>{t('event.minimumViews')}</td>
-				<td>{eventRound.minimumViews}</td>
-			</tr>
-			<tr>
-				<td>{t('event.minimumFollowers')}</td>
-				<td>{eventRound.minimumFollowers}</td>
-			</tr>
-			<tr>
-				<td>{t('event.current')}</td>
-				<td>{eventRound.current ? "Oui": "Non"}</td>
-			</tr>
-		</tbody>
-	</Table>
+	<Row className="mb-5">
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.name')}:</strong> {eventRound.name}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.description')}:</strong> {eventRound.description}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.status')}:</strong> {eventRound.status}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.reservedToAffiliates')}:</strong> {eventRound.reservedToAffiliates ? "Oui": "Non"}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.reservedToPartners')}:</strong> {eventRound.reservedToPartners ? "Oui": "Non"}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.minimumViews')}:</strong> {eventRound.minimumViews}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.minimumFollowers')}:</strong> {eventRound.minimumFollowers}
+		</Col>
+		<Col md="6" xl="4" className="py-2">
+			<strong className="text-secondary">{t('event.current')}:</strong> {eventRound.current ? "Oui": "Non"}
+		</Col>
+	</Row>
 )
 
 EventRoundDetails.propTypes = {

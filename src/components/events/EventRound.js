@@ -35,7 +35,7 @@ class EventRound extends Component{
 				</section>
 
 				<section>
-					<h2>
+					<h2 className="mt-5">
 		                {t('label.users') + '(' + (eventRoundUsersValidated.length + eventRoundUsersWaiting.length) + ')'}
 		            </h2>
 
@@ -44,7 +44,7 @@ class EventRound extends Component{
 		            </h3>
 					<EventRoundUsers eventRoundUsers={eventRoundUsersValidated} usersList={usersList} />
 					
-					<h3 className='website-title'>
+					<h3 className="mt-5">
 		                {t('label.waitingValidation') + '(' + eventRoundUsersWaiting.length + ')'}
 		            </h3>
 					<EventRoundUsers eventRoundUsers={eventRoundUsersWaiting} usersList={usersList} />
