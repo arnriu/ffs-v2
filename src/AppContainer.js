@@ -1,23 +1,13 @@
 import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 
-import SideBar from './components/sidebar';
+import Header from './components/header';
 import Views from './views';
 
 const AppContainer = () => (
 	<Container fluid>
-		<Row>
-			<Col className="sidebar-col" tag="aside">
-				<SideBar />
-			</Col>
-			<Col className="main-col">
-				<Row>
-					<Col>
-						<Views />
-					</Col>
-				</Row>
-			</Col>
-		</Row>
+		<Header />
+		<Views />
 	</Container>
 );
 

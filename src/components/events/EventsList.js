@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
-import { Row, Col } from 'reactstrap'
 
 import EventsListTable from './EventsListTable'
 
@@ -23,22 +22,15 @@ class EventsList extends Component{
 		const {t, eventsList, eventsIds} = this.props
 
 		return(
-			<div>
-				<Row>
-					<Col>
-						<h3 className='website-title'>
-			                {t('label.events')}
-			            </h3>
-					</Col>
-				</Row>
-
-                <Row>
-                	<Col>
-                		{eventsList && <EventsListTable eventsList={eventsList} eventsIds={eventsIds} />}
-	            		{!eventsList && <div>NoEvents</div>}
-	            	</Col>
-	            </Row>
-			</div>
+			<main>
+				<header>
+					<h2>
+		                {t('label.events')}
+		            </h2>
+		        </header>
+        		{eventsList && <EventsListTable eventsList={eventsList} eventsIds={eventsIds} />}
+        		{!eventsList && <div>NoEvents</div>}
+			</main>
 		)
 	}
 }

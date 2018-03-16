@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Live = () => (
-	<div>Live</div>
+	<main>Live</main>
 );
 
 export default Live;

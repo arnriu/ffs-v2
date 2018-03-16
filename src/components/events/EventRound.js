@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { withRouter } from 'react-router-dom'
-import { Row, Col } from 'reactstrap'
 
 import EventRoundDetails from './EventRoundDetails'
 import EventRoundUsers from './EventRoundUsers'
@@ -27,57 +26,30 @@ class EventRound extends Component{
 		const {t, eventRound, eventRoundUsersValidated, eventRoundUsersWaiting, usersList} = this.props
 
 		return(
-			<div>
-				<Row>
-					<Col>
-						<h3 className='website-title'>
-			                {t('website.detailEvent')}
-			            </h3>
-					</Col>
-				</Row>
+			<main>
+				<section>
+					<h2>
+		                {t('website.detailEvent')}
+		            </h2>
+					<EventRoundDetails eventRound={eventRound} />
+				</section>
 
-				<Row>
-					<Col>
-						<EventRoundDetails eventRound={eventRound} />
-					</Col>
-				</Row>
+				<section>
+					<h2>
+		                {t('label.users') + '(' + (eventRoundUsersValidated.length + eventRoundUsersWaiting.length) + ')'}
+		            </h2>
 
-				<Row>
-					<Col>
-						<h3 className='website-title'>
-			                {t('label.users') + '(' + (eventRoundUsersValidated.length + eventRoundUsersWaiting.length) + ')'}
-			            </h3>
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<h3 className='website-title'>
-			                {t('label.validated') + '(' + eventRoundUsersValidated.length + ')'}
-			            </h3>
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<EventRoundUsers eventRoundUsers={eventRoundUsersValidated} usersList={usersList} />
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<h3 className='website-title'>
-			                {t('label.waitingValidation') + '(' + eventRoundUsersWaiting.length + ')'}
-			            </h3>
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						<EventRoundUsers eventRoundUsers={eventRoundUsersWaiting} usersList={usersList} />
-					</Col>
-				</Row>
-			</div>
+					<h3>
+		                {t('label.validated') + '(' + eventRoundUsersValidated.length + ')'}
+		            </h3>
+					<EventRoundUsers eventRoundUsers={eventRoundUsersValidated} usersList={usersList} />
+					
+					<h3 className='website-title'>
+		                {t('label.waitingValidation') + '(' + eventRoundUsersWaiting.length + ')'}
+		            </h3>
+					<EventRoundUsers eventRoundUsers={eventRoundUsersWaiting} usersList={usersList} />
+				</section>
+			</main>
 		)
 	}
 }

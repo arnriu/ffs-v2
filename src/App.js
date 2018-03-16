@@ -3,12 +3,10 @@ import { Route } from 'react-router-dom';
 
 import AppContainer from './AppContainer';
 
-const App = ({ loggedIn }) => (
-	<div className={window.location.hostname.split('-')[0]}>
-		<Route path="/:path?" render={() => (
-			<AppContainer />
-		)} />
-	</div>
+const App = () => (
+	<Route path="/:path?" render={() => (
+		<AppContainer />
+	)} />
 );
 
 export default App;

@@ -3,9 +3,11 @@ import { translate } from 'react-i18next';
 
 const Home = ({t}) => (
     <article>
-        <h1>
-            Fight for <strong>Sub</strong>
-        </h1>
+        <header>
+            <h2>
+                Fight for <strong>Sub</strong>
+            </h2>
+        </header>
         <section>
         	<h2>{t('home.titles.whatIsIt')}</h2>
             <p>
