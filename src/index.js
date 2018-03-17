@@ -6,6 +6,7 @@ import configureStore from './configureStore';
 
 import './css/styles.css';
 import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
+import 'font-awesome/css/font-awesome.css';
 
 export const store = configureStore();
 

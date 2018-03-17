@@ -31,7 +31,7 @@ const EventRoundUsers = ({t, eventRoundUsers, usersList}) => (
             dataFormat={(c, r) =>
                 <div className="d-flex flex-column">
                     <strong className="font-weight-normal">{c}</strong>
-                    <small><a href={r.url}>{r.url.split('https://www.')[1]}</a></small>
+                    <small><a href={r.url} target="_blank">{r.url.split('https://www.')[1]}</a></small>
                 </div>
             }
             dataSort
