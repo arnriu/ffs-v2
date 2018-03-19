@@ -17,3 +17,9 @@ export const fetchEventRoundUsers = (id) => {
 	
 	return fetch(url)
 }
+
+export const fetchEventLive = () => {
+	const url = apiUrl + 'event/current'
+	
+	return fetch(url)
+}

@@ -10,9 +10,9 @@ const Footer = ({t}) => (
 			<i className='fa fa-twitch' /> Connexion
 		</Button>
 		<p className="text-center m-0">
-			Crafted with <i className="fa fa-heart text-danger"></i> and <img src={kappa} alt="Kappa" /> by some viewers for some viewers.
+			Crafted with <i className="fa fa-heart text-danger"></i> and <img src={kappa} alt="Kappa" /> by a bunch of viewers for a bunch of streamers.
 		</p>
-        <a className="btn btn-outline-primary" href='https://github.com/FightForSub' target="_blank" title={t('global.sidemenu.labels.github')}>
+        <a className="btn btn-outline-primary" href='https://github.com/FightForSub' target="_blank" rel="noopener noreferrer" title={t('global.sidemenu.labels.github')}>
             <i className='fa fa-github' /> {t('global.sidemenu.buttons.github')}
         </a>
 	</footer>	

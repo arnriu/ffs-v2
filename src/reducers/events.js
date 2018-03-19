@@ -72,7 +72,7 @@ const events = () => {
 		eventsIds,
 		eventRound,
 		eventRoundUsersValidated,
-		eventRoundUsersWaiting
+		eventRoundUsersWaiting,
 	});
 };
 

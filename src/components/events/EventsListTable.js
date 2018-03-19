@@ -11,7 +11,7 @@ const EventsListTable = ({history, eventsList, eventsIds}) => (
         striped
         hover
         options = {{
-            onRowClick: (r) => history.push('/events/'+r.id)
+            onRowClick: (r) => history.push(["OPEN", "CLOSED"].includes(r.status) ? "/events/" + r.id : "/results/" + r.id)
         }}
     >
         <TableHeaderColumn

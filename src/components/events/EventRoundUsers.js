@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { translate } from 'react-i18next';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table'
 
+import { getUsersListByIds } from '../../reducers/users'
+
 const EventRoundUsers = ({t, eventRoundUsers, usersList}) => (
 	<BootstrapTable
-        data={eventRoundUsers.map(i => usersList[i])}
+        data={usersList}
         bordered={false}
         className="border-0"
     >
@@ -21,7 +24,9 @@ const EventRoundUsers = ({t, eventRoundUsers, usersList}) => (
             className="align-top text-secondary font-weight-normal font-italic"
             dataField="logo"
             dataFormat={(c, r) =>
-                <img className="img-fluid rounded-circle w-75" src={c}alt={r.username + ' logo'} />
+                <div className="rounded-circle user-logo bg-dark">
+                    <img className="img-fluid" src={c} alt={r.username + ' logo'} />
+                </div>
         }>
         </TableHeaderColumn>
         <TableHeaderColumn
@@ -57,13 +62,16 @@ const EventRoundUsers = ({t, eventRoundUsers, usersList}) => (
         >
             Views
         </TableHeaderColumn>
-        
     </BootstrapTable>
 )
 
+const mapStateToProps = (state, {eventRoundUsers}) => ({
+    usersList: getUsersListByIds(state, eventRoundUsers)
+});
+
 EventRoundUsers.propTypes = {
 	eventRoundUsers: PropTypes.array.isRequired,
-	usersList: PropTypes.object.isRequired
+	usersList: PropTypes.array.isRequired
 };
 
-export default translate()(EventRoundUsers);
+export default translate()(connect(mapStateToProps)(EventRoundUsers));

@@ -1,7 +1,7 @@
 import React from 'react';
 import { translate } from 'react-i18next';
 
-const Home = ({t}) => (
+const HomeView = ({t}) => (
     <article>
         <h2>
             Fight for <strong>Sub</strong>
@@ -39,4 +39,4 @@ const Home = ({t}) => (
     </article>
 )
 
-export default translate()(Home);
+export default translate()(HomeView);

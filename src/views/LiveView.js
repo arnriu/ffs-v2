@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Live = () => (
+const LiveView = () => (
 	<main>Live</main>
 );
 
-export default Live;
+export default LiveView;

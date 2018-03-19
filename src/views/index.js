@@ -1,43 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import { withRouter, Switch, Route } from 'react-router-dom';
 
-import Home from './Home';
-import Events from './Events';
-import Live from './Live';
+import * as actions from '../actions/events'
+import { getPaths } from '../reducers/paths'
 
-export const paths = [
-	{
-		name: "home",
-		label: "",
-		path: "/",
-		linkPath: "/",
-		component: Home,
-		exact: true
-	},
-	{
-		name: "live",
-		label: "label.livePage",
-		path: "/live",
-		linkPath: "/live",
-		component: Live,
-		exact: true
-	},
-	{
-		name: "events",
-		label: "label.eventListPage",
-		path: "/events/:event?",
-		linkPath: "/events",
-		component: Events,
-		exact: false
+class Views extends Component{
+	componentDidMount() {
+		this.fetchData();
 	}
-]
 
-const Views = () => (
-	<Switch>
-		{paths.map((i, index) => (
-			<Route key={index} {...i} />
-		))}
-	</Switch>
-);
+	fetchData() {
+		const { fetchEventLive } = this.props
+		fetchEventLive()
+	}
+
+	render(){
+		const { paths } = this.props
+		return(
+			<Switch>
+				{Object.keys(paths).map((i, index) => (
+					<Route key={index} {...paths[i]} />
+				))}
+			</Switch>
+		)
+	}
+}
+
+const mapStateToProps = (state) => ({
+	paths: getPaths(state)
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	fetchEventLive(){
+		dispatch(actions.fetchEventLive());
+	},
+})
+
+Views = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Views);
 
 export default withRouter(Views);

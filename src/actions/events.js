@@ -61,3 +61,28 @@ export const fetchEventRoundUsers = (id) => (dispatch) => {
 		}
 	);
 }
+
+export const fetchEventLive = (id) => (dispatch) => {
+	return api.fetchEventLive().then(
+		response => {
+			if (!response.ok) {
+	            return dispatch({
+					type: 'FETCH_EVENT_LIVE_FAILURE',
+					message: response.statusText || 'Something went wrong.',
+				});
+	        }
+			response.json().then(response => 
+				dispatch({
+					type: 'FETCH_EVENT_LIVE_SUCCESS',
+					response
+				})
+			)
+		},
+		error => {
+			dispatch({
+				type: 'FETCH_EVENT_LIVE_FAILURE',
+				message: error.message || 'Something went wrong.',
+			});
+		}
+	);
+}
