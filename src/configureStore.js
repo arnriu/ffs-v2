@@ -25,8 +25,7 @@ const configureStore = () => {
 		saveState({
 			events: store.getState().events,
 			users: store.getState().users,
-			results: store.getState().results,
-			paths: store.getState().paths
+			results: store.getState().results
 		});
 	}, 1000));
 
