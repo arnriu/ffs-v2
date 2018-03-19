@@ -71,7 +71,7 @@ class ResultsList extends Component{
 			            dataField={"round"+i}
 			            dataSort
 			        >
-			            Round {index}
+			            Round {index+1}
 			        </TableHeaderColumn>
 		        )}
 

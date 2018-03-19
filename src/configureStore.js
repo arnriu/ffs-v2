@@ -24,7 +24,9 @@ const configureStore = () => {
 	store.subscribe(throttle(() => {
 		saveState({
 			events: store.getState().events,
-			users: store.getState().users
+			users: store.getState().users,
+			results: store.getState().results,
+			paths: store.getState().paths
 		});
 	}, 1000));
 
